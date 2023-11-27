@@ -22,7 +22,7 @@ Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 
-
+let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
 map <C-s> :w<cr>:!rm ~/.vim/Session/Session.vim<cr>:mksession ~/.vim/Session/Session.vim<cr>
 map <S-Up>  :vertical resize +10<cr>
