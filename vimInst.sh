@@ -1,5 +1,6 @@
 #!/bin/sh
 mv .vimrc ~/.vimrc
+sudo apt install cmake -y
 
 #install you complete me
 git clone --recurse-submodules https://github.com/ycm-core/YouCompleteMe.git ~/.vim/pack/YouCompleteMe/opt/YouCompleteMe
