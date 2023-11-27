@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+execute pathogen#infect()
 
 
 call plug#begin('~/.vim/plugged')
@@ -32,6 +33,7 @@ inoremap "<TAB> ""<ESC>i
 inoremap '<TAB> ''<ESC>i
 inoremap {<TAB> {<Cr>}<Esc>O
 autocmd VimEnter * syntax on
+autocmd VimEnter * set ai
 autocmd VimEnter * colorscheme seoul256
 map <S-j> gt
 map <C-j> gT
