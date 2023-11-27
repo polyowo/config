@@ -24,9 +24,10 @@ call plug#end()
 
 
 map <F2> :NERDTreeToggle<cr>
-map <C-s> :w<cr>
+map <C-s> :w<cr>:!rm ~/.vim/Session/Session.vim<cr>:mksession ~/.vim/Session/Session.vim<cr>
 map <S-Up>  :vertical resize +10<cr>
 map <S-Down>  :vertical resize -10<cr>
+map <C-v> :source ~/.vim/Session/Session.vim<cr>
 map s :w<cr>
 inoremap (<TAB> ()<ESC>i
 inoremap "<TAB> ""<ESC>i
@@ -35,6 +36,9 @@ inoremap {<TAB> {<Cr>}<Esc>O
 autocmd VimEnter * syntax on
 autocmd VimEnter * set ai
 autocmd VimEnter * colorscheme seoul256
+autocmd VimEnter * set expandtab
+autocmd VimEnter * set tabstop=4
+autocmd VimEnter * set shiftwidth=4
 map <S-j> gt
 map <C-j> gT
 map <C-k> :tabnew<cr><F2>

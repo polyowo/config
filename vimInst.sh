@@ -29,4 +29,7 @@ cd ~/.vim/bundle
 git clone https://github.com/tpope/vim-obsession.git
 vim -u NONE -c "helptags vim-obsession/doc" -c q
 
+mkdir ~/.vim/Session/
+
+
 vim +PlugInstall +PluginInstall +"helptags vim-obsession/doc" +qa
