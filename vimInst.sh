@@ -26,7 +26,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 #install obssesion
 cd ~/.vim/bundle
-git clone git://github.com/tpope/vim-obsession.git
+git clone https://github.com/tpope/vim-obsession.git
 vim -u NONE -c "helptags vim-obsession/doc" -c q
 
-vim +PlugInstall +PluginInstall +"helptags vim-obsession/doc" +q
+vim +PlugInstall +PluginInstall +"helptags vim-obsession/doc" +qa
