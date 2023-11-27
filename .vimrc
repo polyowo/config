@@ -39,6 +39,7 @@ autocmd VimEnter * colorscheme seoul256
 autocmd VimEnter * set expandtab
 autocmd VimEnter * set tabstop=4
 autocmd VimEnter * set shiftwidth=4
+autocmd VimEnter * set number
 map <S-j> gt
 map <C-j> gT
 map <C-k> :tabnew<cr><F2>
