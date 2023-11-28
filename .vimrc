@@ -24,15 +24,15 @@ call plug#end()
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
-map <C-s> :w<cr>:!rm ~/.vim/Session/Session.vim<cr>:mksession ~/.vim/Session/Session.vim<cr>
+map <C-s> :w<cr>:!rm ~/.vim/Session/Session.vim<cr>tabdo windo NERDTreeClose<cr>:mksession ~/.vim/Session/Session.vim<cr>
 map <S-Up>  :vertical resize +10<cr>
 map <S-Down>  :vertical resize -10<cr>
 map <C-v> :source ~/.vim/Session/Session.vim<cr>
 map s :w<cr>
-inoremap (<TAB> ()<ESC>i
-inoremap "<TAB> ""<ESC>i
-inoremap '<TAB> ''<ESC>i
-inoremap {<TAB> {<Cr>}<Esc>O
+inoremap ( ()<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap { {<Cr>}<Esc>O
 autocmd VimEnter * syntax on
 autocmd VimEnter * set ai
 autocmd VimEnter * colorscheme seoul256
