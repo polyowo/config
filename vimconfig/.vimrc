@@ -6,6 +6,7 @@ packadd YouCompleteMe
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -21,6 +22,14 @@ Plug 'junegunn/seoul256.vim'
 " Initialize plugin system
 call plug#end()
 
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>

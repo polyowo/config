@@ -1,0 +1,6 @@
+
+#my custom alias
+alias nf='clear && neofetch'
+alias go2d='cd ~/../../mnt/d'
+alias cls='clear && for i in {1..100}; do echo " "; done'
+cls
