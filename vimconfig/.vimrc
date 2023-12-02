@@ -33,10 +33,11 @@ let g:cpp_no_function_highlight = 1
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
-map <C-s> :w<cr>:!rm Session.vim<cr>:tabdo windo NERDTreeClose<cr>:mksession Session.vim<cr>
+map <C-s> :wall<cr>:silent exec "!rm Session.vim > /dev/null"<cr>:tabdo windo NERDTreeClose<cr>:mksession Session.vim<cr>:redraw!<cr>
 map <S-Up>  :vertical resize +10<cr>
 map <S-Down>  :vertical resize -10<cr>
-map <C-v> :source Session.vim<cr>
+map <C-a> :source Session.vim<cr>
+map <S><TAB> <TAB>
 
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
