@@ -1,35 +1,38 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set encoding=utf-8
 
 packadd YouCompleteMe
+packadd vim-cpp-modern
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 execute pathogen#infect()
 
-
 call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-Plug 'junegunn/seoul256.vim'
 
 " Initialize plugin system
 call plug#end()
 
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
+" Disable function highlighting (affects both C and C++ files)
+let g:cpp_function_highlight = 0
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 1
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
@@ -45,14 +48,16 @@ inoremap ' ''<ESC>i
 inoremap { {<Cr>}<Esc>O
 autocmd VimEnter * syntax on
 autocmd VimEnter * set ai
-autocmd VimEnter * colorscheme seoul256
 autocmd VimEnter * set expandtab
 autocmd VimEnter * set tabstop=4
 autocmd VimEnter * set shiftwidth=4
 autocmd VimEnter * set number
-map <S-j> gt
-map <C-j> gT
-map <C-k> :tabnew<cr><F2>
-map <S-k> :tabc!<cr>
 inoremap <TAB> <Space><Space><Space><Space>
+set relativenumber
 
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
