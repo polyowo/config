@@ -17,6 +17,7 @@ filetype plugin indent on    " required
 execute pathogen#infect()
 
 call plug#begin('~/.vim/plugged')
+Plug 'jceb/vim-orgmode'
 
 " Initialize plugin system
 call plug#end()
@@ -42,10 +43,10 @@ map <S-Down>  :vertical resize -10<cr>
 map <C-a> :source Session.vim<cr>
 map <S><TAB> <TAB>
 
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap { {<Cr>}<Esc>O
+"inoremap ( ()<ESC>i
+"inoremap " ""<ESC>i
+"inoremap ' ''<ESC>i
+"inoremap { {<Cr>}<Esc>O
 autocmd VimEnter * syntax on
 autocmd VimEnter * set ai
 autocmd VimEnter * set expandtab
