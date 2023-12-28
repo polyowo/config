@@ -37,11 +37,19 @@ let g:cpp_simple_highlight = 1
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
-map <C-s> :wall<cr>:silent exec "!rm Session.vim > /dev/null"<cr>:tabdo windo NERDTreeClose<cr>:mksession Session.vim<cr>:redraw!<cr>
-map <S-Up>  :vertical resize +10<cr>
-map <S-Down>  :vertical resize -10<cr>
+map <C-s> :silent call SaveSession()<cr>
 map <C-a> :source Session.vim<cr>
-map <S><TAB> <TAB>
+
+function! SaveSession()
+    let currentTab = string(tabpagenr())
+    :wall
+    :silent exec "!rm Session.vim > /dev/null"
+    :tabdo windo NERDTreeClose
+    :exe "normal ".  currentTab. "gt" 
+    :mksession Session.vim
+    :redraw!
+    :echo currentTab 
+endfunction
 
 "inoremap ( ()<ESC>i
 "inoremap " ""<ESC>i
