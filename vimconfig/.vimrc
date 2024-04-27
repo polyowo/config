@@ -40,7 +40,6 @@ let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
 map <C-s> :call SaveSession()<cr>
 map <C-a> :source Session.vim<cr>
-map <TAB> zA
 vnoremap <C-_> :call CommentCode()<cr>
 
 function! SaveSession()
@@ -55,9 +54,14 @@ function! SaveSession()
     :wall
 endfunction
 
+function! ReplaceSlash(str)
+    return substitute(a:str, '/', '\\/', 'g')
+endfunction
+
 function! CommentCode()
     let commentChar = ""
     let commentChar .= input('')
+    let commentChar = ReplaceSlash(commentChar)
     :silent exe "'<,'>s/^/".commentChar."/"
 endfunction
 
