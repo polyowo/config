@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set encoding=utf-8
+set noswapfile
 
 packadd YouCompleteMe
 packadd vim-cpp-modern
@@ -37,18 +38,27 @@ let g:cpp_simple_highlight = 1
 
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
-map <C-s> :silent call SaveSession()<cr>
+map <C-s> :call SaveSession()<cr>
 map <C-a> :source Session.vim<cr>
+map <TAB> zA
+vnoremap <C-_> :call CommentCode()<cr>
 
 function! SaveSession()
-    let currentTab = string(tabpagenr())
+"    let currentTab = string(tabpagenr())
+"    :wall
+"    :silent exec "!rm Session.vim > /dev/null"
+"    :tabdo windo NERDTreeClose
+"    :exe "normal ".  currentTab. "gt" 
+"    :mksession Session.vim
+"    :redraw!
+"    :echo 'session saved!'
     :wall
-    :silent exec "!rm Session.vim > /dev/null"
-    :tabdo windo NERDTreeClose
-    :exe "normal ".  currentTab. "gt" 
-    :mksession Session.vim
-    :redraw!
-    :echo currentTab 
+endfunction
+
+function! CommentCode()
+    let commentChar = ""
+    let commentChar .= input('')
+    :silent exe "'<,'>s/^/".commentChar."/"
 endfunction
 
 "inoremap ( ()<ESC>i
@@ -63,6 +73,12 @@ autocmd VimEnter * set shiftwidth=4
 autocmd VimEnter * set number
 inoremap <TAB> <Space><Space><Space><Space>
 set relativenumber
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
+vnoremap <C-x> "_x
+set scrolloff=999
+"set foldmethod=indent
+"set foldlevel=0
 
 let g:tmux_navigator_no_mappings = 1
 
