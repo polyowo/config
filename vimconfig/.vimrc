@@ -15,13 +15,17 @@ Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
 execute pathogen#infect()
 
 call plug#begin('~/.vim/plugged')
 Plug 'jceb/vim-orgmode'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Initialize plugin system
 call plug#end()
+
+colorscheme catppuccin_mocha
 
 " Disable function highlighting (affects both C and C++ files)
 let g:cpp_function_highlight = 0
@@ -39,19 +43,19 @@ let g:cpp_simple_highlight = 1
 let g:ycm_show_diagnostics_ui = 0
 map <F2> :NERDTreeToggle<cr>
 map <C-s> :call SaveSession()<cr>
-map <C-a> :source Session.vim<cr>
+map <C-S> :source Session.vim<cr>
 vnoremap <C-_> :call CommentCode()<cr>
 
 function! SaveSession()
-"    let currentTab = string(tabpagenr())
-"    :wall
-"    :silent exec "!rm Session.vim > /dev/null"
-"    :tabdo windo NERDTreeClose
-"    :exe "normal ".  currentTab. "gt" 
-"    :mksession Session.vim
-"    :redraw!
-"    :echo 'session saved!'
+    let currentTab = string(tabpagenr())
     :wall
+    :silent exec "!rm Session.vim > /dev/null"
+    :tabdo windo NERDTreeClose
+    :exe "normal ".  currentTab. "gt" 
+    :mksession Session.vim
+    :redraw!
+    normal {currentTab}gt
+    :echo 'session saved!'
 endfunction
 
 function! ReplaceSlash(str)
@@ -83,6 +87,9 @@ vnoremap <C-x> "_x
 set scrolloff=999
 "set foldmethod=indent
 "set foldlevel=0
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
+set mouse=a
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -90,3 +97,6 @@ noremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
 noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
 noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
 noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
+
+nnoremap ) :tabnew<CR>
+nnoremap ( :tabc<CR>

@@ -1,0 +1,3 @@
+#!/bin/bash
+cp ~/.vimrc ~/.config/myconfig/vimconfig/.vimrc
+cp ~/.tmux.conf ~/.config/myconfig/tmuxconfig/.tmux.conf
