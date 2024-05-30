@@ -1,11 +1,11 @@
 #!/bin/sh
-cp .vimrc ~/.vimrc
-sudo apt install cmake -y
-sudo apt-get install python3-dev
-sudo apt install npm
-sudo apt install openjdk-17-jdk
-sudo apt install python3-dev
-sudo snap install go --classic
+#cp .vimrc ~/.vimrc
+#sudo dnf install cmake -y
+#sudo dnf install npm
+#sudo dnf install openjdk-17-jdk
+#sudo dnf install python3-dev
+#sudo dnf install snap
+#sudo snap install go --classic
 cd
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
