@@ -57,6 +57,10 @@ nnoremap <S-TAB> gT
 nnoremap <C-p> :Files<CR>
 nnoremap <C-o> :Buffer<CR>
 set mouse=a
+let g:imager#filetypes = ['.md', '.org'] " enable image for specific extension
+let g:vim_markdown_folding_disabled = 1
+let g:org_aggressive_conceal = 0
+
 
 " tab mappings
 nnoremap ) :tabnew<CR>
