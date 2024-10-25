@@ -55,8 +55,8 @@ vnoremap <C-x> "_x
 set scrolloff=999
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
-nnoremap <C-9> :Files<CR>
-nnoremap <C-0> :Buffer<CR>
+nnoremap [[ :Files<CR>
+nnoremap ]] :Buffer<CR>
 set mouse=a
 
 " tab mappings
